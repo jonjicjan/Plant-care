@@ -1,0 +1,196 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Manrope:wght@500;600;700;800&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    /* Premium dark botanical */
+    --background: 153 29% 6%;
+    --foreground: 120 17% 95%;
+    --card: 141 23% 12%;
+    --card-foreground: 120 17% 95%;
+    --popover: 141 23% 13%;
+    --popover-foreground: 120 17% 95%;
+    --primary: 145 55% 64%;
+    --primary-foreground: 153 40% 8%;
+    --secondary: 139 22% 15%;
+    --secondary-foreground: 145 55% 74%;
+    --muted: 150 24% 10%;
+    --muted-foreground: 137 11% 68%;
+    --accent: 148 24% 18%;
+    --accent-foreground: 145 55% 72%;
+    --destructive: 0 72% 68%;
+    --destructive-foreground: 0 45% 10%;
+    --warning: 39 75% 64%;
+    --warning-foreground: 39 60% 10%;
+    --border: 142 19% 20%;
+    --input: 142 18% 25%;
+    --ring: 145 45% 46%;
+    --chart-1: 145 55% 64%;
+    --chart-2: 148 48% 44%;
+    --chart-3: 39 75% 64%;
+    --chart-4: 0 72% 68%;
+    --chart-5: 190 32% 55%;
+    --sidebar-background: 150 27% 9%;
+    --sidebar-foreground: 120 17% 95%;
+    --sidebar-primary: 145 55% 64%;
+    --sidebar-primary-foreground: 153 40% 8%;
+    --sidebar-accent: 148 24% 16%;
+    --sidebar-accent-foreground: 145 55% 74%;
+    --sidebar-border: 142 19% 18%;
+    --sidebar-ring: 145 45% 46%;
+    --radius: 0.9rem;
+    --font-heading: "Manrope", "Inter", ui-sans-serif, system-ui, sans-serif;
+    --font-body: "Inter", ui-sans-serif, system-ui, -apple-system, sans-serif;
+    --font-display: "Manrope", "Inter", ui-sans-serif, system-ui, sans-serif;
+    --font-mono: ui-monospace, SFMono-Regular, Menlo, monospace;
+  }
+
+  /* The app ships in one dark botanical theme; these mirror :root for dark-class consumers. */
+  .dark {
+    --background: 153 29% 6%;
+    --foreground: 120 17% 95%;
+    --card: 141 23% 12%;
+    --card-foreground: 120 17% 95%;
+    --popover: 141 23% 13%;
+    --popover-foreground: 120 17% 95%;
+    --primary: 145 55% 64%;
+    --primary-foreground: 153 40% 8%;
+    --secondary: 139 22% 15%;
+    --secondary-foreground: 145 55% 74%;
+    --muted: 150 24% 10%;
+    --muted-foreground: 137 11% 68%;
+    --accent: 148 24% 18%;
+    --accent-foreground: 145 55% 72%;
+    --destructive: 0 72% 68%;
+    --destructive-foreground: 0 45% 10%;
+    --warning: 39 75% 64%;
+    --warning-foreground: 39 60% 10%;
+    --border: 142 19% 20%;
+    --input: 142 18% 25%;
+    --ring: 145 45% 46%;
+    --sidebar-background: 150 27% 9%;
+    --sidebar-foreground: 120 17% 95%;
+    --sidebar-primary: 145 55% 64%;
+    --sidebar-primary-foreground: 153 40% 8%;
+    --sidebar-accent: 148 24% 16%;
+    --sidebar-accent-foreground: 145 55% 74%;
+    --sidebar-border: 142 19% 18%;
+    --sidebar-ring: 145 45% 46%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  html {
+    -webkit-tap-highlight-color: transparent;
+    color-scheme: dark;
+    max-width: 100%;
+    overflow-x: clip;
+  }
+
+  body {
+    @apply bg-background font-body text-foreground antialiased;
+    max-width: 100%;
+    background-image:
+      radial-gradient(70rem 40rem at 8% -12%, hsl(148 32% 20% / 0.5), transparent 60%),
+      radial-gradient(55rem 35rem at 100% 0%, hsl(158 28% 16% / 0.45), transparent 55%);
+    background-attachment: fixed;
+    font-feature-settings: "cv11", "ss01";
+  }
+
+  h1,
+  h2,
+  h3 {
+    @apply font-display font-bold tracking-tight;
+  }
+
+  ::selection {
+    background: hsl(var(--primary) / 0.28);
+  }
+
+  input,
+  textarea,
+  select {
+    font-family: inherit;
+  }
+
+  img,
+  span[data-base44-image] {
+    max-width: 100%;
+  }
+
+  input[type="date"]::-webkit-calendar-picker-indicator,
+  input[type="time"]::-webkit-calendar-picker-indicator {
+    filter: invert(0.75) sepia(0.2) saturate(3) hue-rotate(80deg);
+    cursor: pointer;
+  }
+
+  ::-webkit-scrollbar {
+    width: 10px;
+    height: 10px;
+  }
+
+  ::-webkit-scrollbar-track {
+    background: hsl(var(--background));
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background: hsl(var(--border));
+    border-radius: 999px;
+    border: 2px solid hsl(var(--background));
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    background: hsl(145 20% 30%);
+  }
+}
+
+@layer utilities {
+  .card-surface {
+    @apply rounded-2xl border border-border/80 bg-card;
+    box-shadow: 0 24px 60px -40px rgba(0, 0, 0, 0.9);
+  }
+
+  .card-raised {
+    @apply rounded-2xl border border-border/80 bg-secondary;
+    box-shadow: 0 26px 60px -42px rgba(0, 0, 0, 0.95);
+  }
+
+  .card-hover {
+    @apply transition duration-300 hover:-translate-y-0.5 hover:border-primary/40;
+    transition-property: transform, border-color, box-shadow;
+  }
+
+  .card-hover:hover {
+    box-shadow: 0 30px 60px -38px rgba(112, 214, 154, 0.28);
+  }
+
+  .gradient-primary {
+    background-image: linear-gradient(135deg, hsl(148 52% 46%), hsl(145 55% 64%));
+  }
+
+  .gradient-text {
+    background-image: linear-gradient(120deg, hsl(145 55% 74%), hsl(148 48% 46%));
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+  }
+
+  .field-shell {
+    @apply h-11 w-full rounded-xl border border-input bg-background/70 px-3.5 text-sm text-foreground outline-none transition placeholder:text-muted-foreground/60 focus:border-primary/60 focus:ring-4 focus:ring-primary/15;
+  }
+
+  .image-overlay {
+    background-image: linear-gradient(to top, rgba(6, 14, 10, 0.92) 4%, rgba(6, 14, 10, 0.45) 45%, rgba(6, 14, 10, 0.05) 100%);
+  }
+
+  .safe-bottom {
+    padding-bottom: max(0.5rem, env(safe-area-inset-bottom));
+  }
+}
