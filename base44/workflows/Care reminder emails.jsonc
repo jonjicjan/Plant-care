@@ -1,0 +1,44 @@
+{
+  "name": "Care reminder emails",
+  "definition": {
+    "document": {
+      "dsl": "1.0.0",
+      "name": "care_reminder_emails",
+      "version": "1.0",
+      "namespace": "base44"
+    },
+    "do": [
+      {
+        "send_care_reminders": {
+          "call": "invoke_backend_function",
+          "with": {
+            "function_name": "sendCareReminders"
+          },
+          "then": "end",
+          "x-base44": {
+            "title": "Send reminder emails",
+            "description": "Emails due care at the user's reminder time, skipping duplicates"
+          }
+        }
+      }
+    ]
+  },
+  "trigger": {
+    "condition": null,
+    "config": {
+      "trigger_type": "scheduled",
+      "events": [],
+      "schedule_mode": "recurring",
+      "cron_expression": "0 * * * *",
+      "one_time_date": null,
+      "timezone": "Asia/Calcutta",
+      "interval_value": null,
+      "interval_unit": null,
+      "interval_anchor": null,
+      "ends_type": "never",
+      "ends_on_date": null,
+      "ends_after_count": null
+    }
+  },
+  "description": "Every hour, checks each user's preferred reminder time and emails the care that is due, once per day."
+}

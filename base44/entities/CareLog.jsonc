@@ -1,0 +1,57 @@
+{
+  "name": "CareLog",
+  "type": "object",
+  "properties": {
+    "userId": {
+      "type": "string",
+      "description": "Owner of the care log"
+    },
+    "plantId": {
+      "type": "string"
+    },
+    "scheduleId": {
+      "type": "string"
+    },
+    "careType": {
+      "type": "string",
+      "enum": [
+        "watering",
+        "fertilizing",
+        "pruning",
+        "repotting",
+        "maintenance"
+      ]
+    },
+    "completedAt": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "dueAt": {
+      "type": "string",
+      "format": "date-time",
+      "description": "The due date this completion resolved, used to block duplicate submissions"
+    },
+    "notes": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "plantId",
+    "careType",
+    "completedAt"
+  ],
+  "rls": {
+    "read": {
+      "created_by_id": "{{user.id}}"
+    },
+    "create": {
+      "created_by_id": "{{user.id}}"
+    },
+    "update": {
+      "created_by_id": "{{user.id}}"
+    },
+    "delete": {
+      "created_by_id": "{{user.id}}"
+    }
+  }
+}

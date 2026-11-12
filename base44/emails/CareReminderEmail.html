@@ -1,0 +1,74 @@
+<mjml>
+  <mj-head>
+    <mj-title>Plant care: {{completed_count}} done, {{task_count}} to go</mj-title>
+    <mj-preview>{{completed_names}} completed · {{plant_names}} still to do</mj-preview>
+    <mj-attributes>
+      <mj-all font-family="Inter, Helvetica, Arial, sans-serif" />
+      <mj-section background-color="#ffffff" padding="0 36px" />
+      <mj-column padding="0" />
+      <mj-text color="#000000" font-size="15px" line-height="1.6" padding="0" />
+      <mj-button background-color="#71d69b" color="#0c1d15" border-radius="4px" font-size="15px" font-weight="700" inner-padding="14px 28px" padding="0" align="left" />
+      <mj-divider border-color="#e5e7eb" border-width="1px" padding="0" />
+      <mj-class name="h" font-family="Manrope, Arial, sans-serif" font-weight="800" />
+      <mj-class name="muted" color="#6b7280" />
+    </mj-attributes>
+  </mj-head>
+  <mj-body background-color="#f6f7f9" width="600px">
+    <mj-section background-color="#71d69b" padding="24px 36px">
+      <mj-column padding="0">
+        <mj-image src="https://media.base44.com/images/public/6ae6528026f350ab832f641a/376ed2f18_logo.png" alt="PLANT CARE REMINDER APPLICATION" width="34px" align="left" padding="0 0 10px" />
+        <mj-text color="#0c1d15" font-size="11px" letter-spacing="2px" text-transform="uppercase" padding="0">Plant care reminder</mj-text>
+      </mj-column>
+    </mj-section>
+
+    <mj-section padding="36px 36px 12px">
+      <mj-column padding="0">
+        <mj-text mj-class="h" font-size="32px" line-height="1.12" color="#000000" padding="0 0 12px">Your plant care update, {{first_name}}</mj-text>
+        <mj-text mj-class="muted" font-size="16px" padding="0">{{status_line}}</mj-text>
+      </mj-column>
+    </mj-section>
+
+    <mj-section padding="16px 30px 8px">
+      <mj-column padding="0 6px 0 0" inner-background-color="#edf2ee" inner-border-radius="4px">
+        <mj-text mj-class="h" font-size="30px" line-height="1" color="#1f4734" padding="18px 18px 4px">{{completed_count}}</mj-text>
+        <mj-text mj-class="muted" font-size="12px" padding="0 18px 18px">marked completed</mj-text>
+      </mj-column>
+      <mj-column padding="0 0 0 6px" inner-background-color="#fbf0ec" inner-border-radius="4px">
+        <mj-text mj-class="h" font-size="30px" line-height="1" color="#9c4a34" padding="18px 18px 4px">{{task_count}}</mj-text>
+        <mj-text mj-class="muted" font-size="12px" padding="0 18px 18px">not completed yet</mj-text>
+      </mj-column>
+    </mj-section>
+
+    <mj-section padding="24px 36px 4px">
+      <mj-column padding="0">
+        <mj-text mj-class="h" font-size="15px" color="#1f4734" padding="0 0 6px">Marked as completed</mj-text>
+        <mj-text mj-class="muted" font-size="14px" padding="0">{{completed_names}}</mj-text>
+      </mj-column>
+    </mj-section>
+
+    <mj-section padding="20px 36px 4px">
+      <mj-column padding="0">
+        <mj-divider padding="0 0 18px" />
+        <mj-text mj-class="h" font-size="15px" color="#9c4a34" padding="0 0 6px">Still not completed</mj-text>
+        <mj-text mj-class="muted" font-size="14px" padding="0">{{plant_names}}</mj-text>
+        <mj-text mj-class="muted" font-size="12px" padding="8px 0 0">{{overdue_count}} of these are already overdue.</mj-text>
+      </mj-column>
+    </mj-section>
+
+    <mj-section padding="24px 36px 12px">
+      <mj-column padding="0">
+        <mj-button href="{{cta_url}}">Open my reminders</mj-button>
+      </mj-column>
+    </mj-section>
+
+    <mj-section padding="16px 36px 40px">
+      <mj-column padding="0">
+        <mj-divider padding="0 0 18px" />
+        <mj-text mj-class="muted" font-size="12px" padding="0">
+          You get this email once a day at your reminder time, when care is due or when you have marked care as completed. Mark tasks off in the app to update your schedule. Change the time or switch email reminders off on the notification settings page.
+        </mj-text>
+        <mj-text mj-class="muted" font-size="12px" padding="10px 0 0">Sent {{issue_date}}</mj-text>
+      </mj-column>
+    </mj-section>
+  </mj-body>
+</mjml>

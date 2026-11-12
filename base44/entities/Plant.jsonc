@@ -1,0 +1,59 @@
+{
+  "name": "Plant",
+  "type": "object",
+  "properties": {
+    "userId": {
+      "type": "string",
+      "description": "Owner of the plant"
+    },
+    "plantName": {
+      "type": "string",
+      "minLength": 1,
+      "description": "Display name of the plant"
+    },
+    "plantType": {
+      "type": "string",
+      "enum": [
+        "Indoor foliage",
+        "Tropical",
+        "Succulent",
+        "Cactus",
+        "Fern",
+        "Flowering",
+        "Herb",
+        "Trailing",
+        "Other"
+      ]
+    },
+    "dateAdded": {
+      "type": "string",
+      "format": "date",
+      "description": "Day the plant joined the collection"
+    },
+    "imageUrl": {
+      "type": "string",
+      "description": "Private file URI of the plant photo"
+    },
+    "notes": {
+      "type": "string",
+      "description": "Care notes and observations"
+    }
+  },
+  "required": [
+    "plantName"
+  ],
+  "rls": {
+    "read": {
+      "created_by_id": "{{user.id}}"
+    },
+    "create": {
+      "created_by_id": "{{user.id}}"
+    },
+    "update": {
+      "created_by_id": "{{user.id}}"
+    },
+    "delete": {
+      "created_by_id": "{{user.id}}"
+    }
+  }
+}

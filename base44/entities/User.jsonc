@@ -1,0 +1,40 @@
+{
+  "name": "User",
+  "type": "object",
+  "properties": {
+    "role": {
+      "type": "string",
+      "description": "The role of the user in the app",
+      "enum": [
+        "admin",
+        "user"
+      ]
+    },
+    "inAppRemindersEnabled": {
+      "type": "boolean",
+      "description": "Show the in-app reminder bell and its due tasks",
+      "default": true
+    },
+    "browserRemindersEnabled": {
+      "type": "boolean",
+      "description": "Send a browser notification while the app is open in a tab",
+      "default": false
+    },
+    "emailRemindersEnabled": {
+      "type": "boolean",
+      "description": "Send an email reminder at the preferred reminder time on days with due care",
+      "default": false
+    },
+    "reminderTime": {
+      "type": "string",
+      "description": "Preferred reminder time of day, HH:mm"
+    },
+    "timezone": {
+      "type": "string",
+      "description": "IANA timezone captured from the browser, used to send reminders at the right local time"
+    }
+  },
+  "required": [
+    "role"
+  ]
+}

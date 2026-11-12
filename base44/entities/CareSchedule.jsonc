@@ -1,0 +1,65 @@
+{
+  "name": "CareSchedule",
+  "type": "object",
+  "properties": {
+    "userId": {
+      "type": "string",
+      "description": "Owner of the schedule"
+    },
+    "plantId": {
+      "type": "string",
+      "description": "Plant this care belongs to"
+    },
+    "careType": {
+      "type": "string",
+      "enum": [
+        "watering",
+        "fertilizing",
+        "pruning",
+        "repotting",
+        "maintenance"
+      ]
+    },
+    "intervalDays": {
+      "type": "number",
+      "minimum": 1,
+      "maximum": 365
+    },
+    "nextDueAt": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "reminderTime": {
+      "type": "string",
+      "description": "Time of day for the reminder, HH:mm"
+    },
+    "reminderEnabled": {
+      "type": "boolean",
+      "default": true
+    },
+    "active": {
+      "type": "boolean",
+      "default": true
+    }
+  },
+  "required": [
+    "plantId",
+    "careType",
+    "intervalDays",
+    "nextDueAt"
+  ],
+  "rls": {
+    "read": {
+      "created_by_id": "{{user.id}}"
+    },
+    "create": {
+      "created_by_id": "{{user.id}}"
+    },
+    "update": {
+      "created_by_id": "{{user.id}}"
+    },
+    "delete": {
+      "created_by_id": "{{user.id}}"
+    }
+  }
+}
